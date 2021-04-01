@@ -96,19 +96,19 @@
 <li class="toctree-l3"><a class="reference internal" href="module.commands.html">Commands package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="module.data.html">Data package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Debug package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#description"><strong>Description</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#log-manager">log_manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-module.debug"><strong>Description</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-module.debug.log_manager">log_manager</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="module.utils.html">Utils package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="module.html#module-module"><strong>Description</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="module.html#callback-handlers">callback_handlers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="module.html#easter-egg-func">easter_egg_func</a></li>
-<li class="toctree-l2"><a class="reference internal" href="module.html#gitlab">gitlab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="module.html#job-updater">job_updater</a></li>
-<li class="toctree-l2"><a class="reference internal" href="module.html#shared">shared</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-module.callback_handlers">callback_handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-module.easter_egg_func">easter_egg_func</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-module.gitlab">gitlab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-module.job_updater">job_updater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-module.shared">shared</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">Tests package</a></li>
@@ -184,11 +184,51 @@
             
   <div class="section" id="debug-package">
 <h1>Debug package<a class="headerlink" href="#debug-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description">
-<h2><strong>Description</strong><a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-module.debug">
+<span id="description"></span><h2><strong>Description</strong><a class="headerlink" href="#module-module.debug" title="Permalink to this headline">¶</a></h2>
+<p>Debug utilities</p>
 </div>
-<div class="section" id="log-manager">
-<h2>log_manager<a class="headerlink" href="#log-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-module.debug.log_manager">
+<span id="log-manager"></span><h2>log_manager<a class="headerlink" href="#module-module.debug.log_manager" title="Permalink to this headline">¶</a></h2>
+<p>Handles the logging of events</p>
+<dl class="py function">
+<dt id="module.debug.log_manager.error_handler">
+<code class="sig-prename descclassname"><span class="pre">module.debug.log_manager.</span></code><code class="sig-name descname"><span class="pre">error_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#module.debug.log_manager.error_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs the error and notifies the admins.
+:type update: <code class="xref py py-class docutils literal notranslate"><span class="pre">Update</span></code>
+:param update: update event
+:type context: <code class="xref py py-class docutils literal notranslate"><span class="pre">CallbackContext</span></code>
+:param context: context passed by the handler</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="module.debug.log_manager.log_error">
+<code class="sig-prename descclassname"><span class="pre">module.debug.log_manager.</span></code><code class="sig-name descname"><span class="pre">log_error</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#module.debug.log_manager.log_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs an error
+:type header: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>
+:param header: message to put before the error
+:type error: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code>
+:param error: the error that has occurred</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="module.debug.log_manager.log_message">
+<code class="sig-prename descclassname"><span class="pre">module.debug.log_manager.</span></code><code class="sig-name descname"><span class="pre">log_message</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#module.debug.log_manager.log_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs the message that caused the update
+:type update: <code class="xref py py-class docutils literal notranslate"><span class="pre">Update</span></code>
+:param update: update event
+:type context: <code class="xref py py-class docutils literal notranslate"><span class="pre">CallbackContext</span></code>
+:param context: context passed by the handler</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="module.debug.log_manager.notify_error_admin">
+<code class="sig-prename descclassname"><span class="pre">module.debug.log_manager.</span></code><code class="sig-name descname"><span class="pre">notify_error_admin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traceback_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#module.debug.log_manager.notify_error_admin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a telegram message to notify the admins.
+:type context: <code class="xref py py-class docutils literal notranslate"><span class="pre">CallbackContext</span></code>
+:param context: context passed by the handler</p>
+</dd></dl>
+
 </div>
 </div>
 
